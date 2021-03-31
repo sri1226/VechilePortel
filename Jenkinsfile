@@ -2,9 +2,14 @@ pipeline {
     agent any 
     
     stages {
+        stage('clone') { 
+            steps { 
+                sh 'checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sri1226/VechilePortel.git']]])' 
+            }
+        }
         stage('Build') { 
             steps { 
-                echo 'build' 
+                sh 'mvn clean install' 
             }
         }
         stage('test'){
