@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('clone') { 
             steps { 
-                sh 'checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sri1226/VechilePortel.git']]])' 
+                 echo 'we will come back'
             }
         }
         stage('Build') { 
             steps { 
-                sh 'mvn clean install' 
+                sh "mvn clean install"
             }
         }
         stage('test'){
