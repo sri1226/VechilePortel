@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') { 
             steps { 
-                sh "mvn clean install"
+                sh 'mvn clean install'
             }
         }
         stage('test'){
@@ -22,6 +22,9 @@ pipeline {
             steps {
                 echo 'make publish'
             }
-        }
+       
+            }
     }
+    
+    
 }
